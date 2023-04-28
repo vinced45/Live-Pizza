@@ -58,7 +58,7 @@ extension DynamicResultsPizzable {
         }
         
         if tie.count > 0 {
-            var dialog: String = "There is a tie with \(tie.map({ $0.name }).joined(separator: ", ")). They have \(tie.first?.votes ?? 0) votes"
+            let dialog: String = "There is a tie with \(tie.map({ $0.name }).joined(separator: ", ")). They have \(tie.first?.votes ?? 0) votes"
             return dialog
         }
         

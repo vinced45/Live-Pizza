@@ -12,6 +12,7 @@ import ActivityKit
 import Combine
 import SwiftUI
 
+@MainActor
 class LiveActivityManager: NSObject, ObservableObject {
     public static let shared = LiveActivityManager()
     private override init() {

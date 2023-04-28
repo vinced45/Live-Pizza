@@ -14,10 +14,10 @@ struct ContentView: View {
     @StateObject var cloudService = CloudKitService()
     @StateObject var liveActivity = LiveActivityManager.shared
     
-    @State var currentPizza: Pizza = .giordanos
+    @State var currentPizza: Pizza = PizzaType.giordanos.pizza()
     @State var showSheet: Bool = false
     
-    let pizzas: [Pizza] = PizzaType.allCases.map({ $0.pizza(votes: 0) })
+    let pizzas: [Pizza] = PizzaType.allCases.map({ $0.pizza() })
     
     var body: some View {
         NavigationStack {
@@ -52,7 +52,7 @@ struct ContentView: View {
             .onOpenURL(perform: { url in
                 if let params = url.queryParameters,
                    let pizzaId = Int(params["pizza"]!),
-                   let pizza = PizzaType(rawValue: pizzaId)?.pizza(votes: 0) {
+                   let pizza = PizzaType(rawValue: pizzaId)?.pizza() {
                     currentPizza = pizza
                     showSheet = true
                 }

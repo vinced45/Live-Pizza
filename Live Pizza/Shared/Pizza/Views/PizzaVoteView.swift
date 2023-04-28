@@ -22,7 +22,7 @@ struct PizzaVoteView: View {
                 .offset(y: style.offset)
                 .accessibilityElement(children: .ignore)
                 .accessibilityLabel("Voting ends progress. \(Text.init(Constants.talkEndDate, style: .relative)) time remaining")
-            
+
             bottomView
         }
         .padding(.horizontal, 10)

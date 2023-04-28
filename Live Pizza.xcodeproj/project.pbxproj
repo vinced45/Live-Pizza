@@ -229,8 +229,6 @@
 				6102D98929F5F1B600AA32B1 /* Extensions */,
 				6102D96C29F5949D00AA32B1 /* Pizza */,
 				6102D95F29F5908400AA32B1 /* Constants.swift */,
-				6102D96229F590DD00AA32B1 /* LiveActivityManager.swift */,
-				6102D96529F5914E00AA32B1 /* LiveActivityEvent.swift */,
 				6102D98629F5F18500AA32B1 /* ViewStyle.swift */,
 				61E3E1D229F9C7E60024FEFC /* UpdateType.swift */,
 			);
@@ -251,7 +249,7 @@
 		6102D96C29F5949D00AA32B1 /* Pizza */ = {
 			isa = PBXGroup;
 			children = (
-				61484ADF29FB3B1D00D1E77F /* New Group */,
+				61484ADF29FB3B1D00D1E77F /* LiveActivity */,
 				6102D97C29F5A8A300AA32B1 /* Views */,
 				6102D96D29F594CB00AA32B1 /* Pizzable.swift */,
 				6102D97029F595A500AA32B1 /* Pizza.swift */,
@@ -295,11 +293,13 @@
 			path = Shapes;
 			sourceTree = "<group>";
 		};
-		61484ADF29FB3B1D00D1E77F /* New Group */ = {
+		61484ADF29FB3B1D00D1E77F /* LiveActivity */ = {
 			isa = PBXGroup;
 			children = (
+				6102D96229F590DD00AA32B1 /* LiveActivityManager.swift */,
+				6102D96529F5914E00AA32B1 /* LiveActivityEvent.swift */,
 			);
-			path = "New Group";
+			path = LiveActivity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -602,6 +602,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Live-Pizza-Info.plist";
+				INFOPLIST_KEY_NSSiriUsageDescription = "Siri will be used so you can check voting results";
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -643,6 +644,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Live-Pizza-Info.plist";
+				INFOPLIST_KEY_NSSiriUsageDescription = "Siri will be used so you can check voting results";
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;

@@ -10,7 +10,7 @@ class BackgroundTaskHelper {
     static let shared = BackgroundTaskHelper()
     private init() {}
 
-    func registerBackgroundRefresh() {
+    @MainActor func registerBackgroundRefresh() {
         let success = BGTaskScheduler.shared.register(forTaskWithIdentifier: Constants.backgroundTaskID,
                                                       using: nil,
                                                       launchHandler: { task in
@@ -21,7 +21,7 @@ class BackgroundTaskHelper {
         LiveActivityManager.shared.log(event: event, value: timeLeft)
     }
 
-    func scheduleLiveActivityRefresh() {
+    @MainActor func scheduleLiveActivityRefresh() {
         switch UIApplication.shared.backgroundRefreshStatus {
         case .available:
             break
@@ -29,9 +29,10 @@ class BackgroundTaskHelper {
             LiveActivityManager.shared.log(event: .liveActivityUIRefreshedDenied)
             return
         }
-        let request = BGAppRefreshTaskRequest(identifier: Constants.backgroundTaskID)
-        request.earliestBeginDate = LiveActivityManager.shared.refreshDate
+        
         do {
+            let request = BGAppRefreshTaskRequest(identifier: Constants.backgroundTaskID)
+            request.earliestBeginDate = LiveActivityManager.shared.refreshDate
             try BGTaskScheduler.shared.submit(request)
             let formatter = DateFormatter()
             formatter.dateStyle = .medium
@@ -43,7 +44,7 @@ class BackgroundTaskHelper {
         }
     }
 
-    func handleLiveActivity(with task: BGAppRefreshTask) {
+    @MainActor func handleLiveActivity(with task: BGAppRefreshTask) {
         LiveActivityManager.shared.updateLiveActivityUI(for: .votes)
         LiveActivityManager.shared.log(event: .liveActivityUIRefreshedFromBackground)
         task.expirationHandler = {

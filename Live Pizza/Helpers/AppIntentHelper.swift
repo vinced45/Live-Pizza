@@ -30,7 +30,7 @@ struct PizzaIntent: AppIntent, LiveActivityStartingIntent {
     func perform() async throws -> some IntentResult & ProvidesDialog & ShowsSnippetView & ReturnsValue<PizzaResultsEntity>  {
         if let context = await UserDefaultsHelper.getPizzaResults() {
             let pizza = PizzaResultsEntity(context: context)
-            LiveActivityManager.shared.startLiveActivity(for: context)
+            await LiveActivityManager.shared.startLiveActivity(for: context)
             return .result(
                 value: pizza,
                 dialog: IntentDialog(stringLiteral: context.dialog),

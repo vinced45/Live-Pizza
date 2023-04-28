@@ -12,11 +12,39 @@ struct PizzaDetailView: View {
     let pizza: Pizza
     
     var body: some View {
-        VStack {
+        VStack(spacing: 10) {
             headerView
-            Spacer()
+            
+            Image("\(pizza.image)-hero")
+                .resizable()
+                .frame(maxHeight: 200)
+                //.aspectRatio(contentMode: .fill)
+                .cornerRadius(20)
+            
+            Link(destination: url, label: {
+                HStack {
+                    Label(title: {
+                        Text(pizza.url)
+                            .font(.system(size: 20, weight: .bold))
+                    }, icon: {
+                        Image(systemName: "globe")
+                    })
+                    
+                    Spacer()
+                }
+            })
+            
             Text(pizza.details)
+                .multilineTextAlignment(.leading)
+            
+            Spacer()
         }
+        .padding(16)
+        .background(.thinMaterial)
+    }
+    
+    var url: URL {
+        return URL(string: pizza.url) ?? URL(string: "https://deepdishswift.com")!
     }
     
     var headerView: some View {
@@ -35,13 +63,12 @@ struct PizzaDetailView: View {
               ExitButtonView()
             }.frame(width: 24, height: 24)
         }
-        .padding()
     }
 }
 
 struct PizzaDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PizzaDetailView(pizza: .giordanos)
+        PizzaDetailView(pizza: PizzaType.giordanos.pizza())
     }
 }
 
