@@ -16,7 +16,7 @@ struct PizzaResultsAttributes: ActivityAttributes, StaticResultsPizzable {
     struct ContentState: Codable, Hashable, DynamicResultsPizzable {
         var results: [Pizza]
         var lastUpdated: Date
-        var updateType: String
+        var updateType: UpdateType
         
         static func == (lhs: PizzaResultsAttributes.ContentState, rhs: PizzaResultsAttributes.ContentState) -> Bool {
             lhs.lastUpdated == rhs.lastUpdated

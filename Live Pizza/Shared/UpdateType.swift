@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum UpdateType {
+enum UpdateType: String, Codable {
     case cloud
     case device
     case refresh

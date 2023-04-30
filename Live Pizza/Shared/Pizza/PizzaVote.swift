@@ -54,6 +54,6 @@ extension Array<PizzaVote> {
             pizzas.append(pizza.pizza(votes: count))
         }
         
-        return PizzaResults(type: .votes, results: pizzas, lastUpdated: Date(), updateType: "cloud")
+        return PizzaResults(type: .votes, results: pizzas, lastUpdated: Date(), updateType: .cloud)
     }
 }

@@ -16,6 +16,13 @@ struct ContentView: View {
     
     @State var currentPizza: Pizza = PizzaType.giordanos.pizza()
     @State var showSheet: Bool = false
+    @State var showAboutMe: Bool = false
+    
+    @AppStorage("accessibility", store: UserDefaults(suiteName: Constants.appGroup))
+    var enableAccessibility: Bool = true
+    
+    @AppStorage("dynamicText", store: UserDefaults(suiteName: Constants.appGroup))
+    var enableDynamicText: Bool = true
     
     let pizzas: [Pizza] = PizzaType.allCases.map({ $0.pizza() })
     
@@ -31,8 +38,22 @@ struct ContentView: View {
                 votingView
                 
                 liveActivityView
+                
+                accessibilityView
+                
+                dynamicTextView
             }
             .navigationTitle("Favorite Deep Dish 🍕")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        showAboutMe.toggle()
+                    }, label: {
+                        Image(systemName: "info.circle")
+                            .font(.title3)
+                    })
+                }
+            }
             .toolbarColorScheme(.dark, for: .navigationBar)
             .toolbarBackground(Color.mediumBrown, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
@@ -48,6 +69,10 @@ struct ContentView: View {
             .sheet(isPresented: $showSheet) {
                 PizzaDetailView(pizza: currentPizza)
                     .presentationDetents([.medium, .large])
+            }
+            .sheet(isPresented: $showAboutMe) {
+                AboutMeView()
+                    .presentationDetents([.large])
             }
             .onOpenURL(perform: { url in
                 if let params = url.queryParameters,
@@ -129,6 +154,26 @@ extension ContentView {
         } else {
             return sectionButton(name: "Start Live Activity", color: .pizzaYellow, action: startLiveActivity)
         }
+    }
+    
+    var accessibilityView: some View {
+        Section(content: {
+            Toggle("Enable Accessibility", isOn: $enableAccessibility)
+        }, header: {
+            Text("Accessibility")
+        }, footer: {
+            Text("Enable Voice Over to see the difference when this is enabled or not.")
+        })
+    }
+    
+    var dynamicTextView: some View {
+        Section(content: {
+            Toggle("Enable Dynamic Text", isOn: $enableDynamicText)
+        }, header: {
+            Text("Dynamic Text")
+        }, footer: {
+            Text("Go to Control Center and change text size to see the effects of this being enabled")
+        })
     }
 }
 

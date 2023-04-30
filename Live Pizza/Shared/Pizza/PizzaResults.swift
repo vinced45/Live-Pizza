@@ -11,6 +11,6 @@ struct PizzaResults: Pizzable, Codable {
     var type: LiveActivityType
     var results: [Pizza]
     var lastUpdated: Date
-    var updateType: String
+    var updateType: UpdateType
 }
 

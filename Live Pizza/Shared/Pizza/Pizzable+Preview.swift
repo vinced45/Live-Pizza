@@ -31,7 +31,7 @@ extension PizzaResults {
             type: .votes,
             results: [],
             lastUpdated: Date(),
-            updateType: UpdateType.cloud.icon
+            updateType: UpdateType.cloud
         )
     }
     
@@ -40,7 +40,7 @@ extension PizzaResults {
             type: .votes,
             results: [.giordanos, .louMalnatis, .bartolis, .ginos],
             lastUpdated: Date(),
-            updateType: UpdateType.cloud.icon
+            updateType: UpdateType.cloud
         )
     }
 }

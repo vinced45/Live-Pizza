@@ -12,6 +12,12 @@ struct PizzaVoteView: View {
     let results: Pizzable
     let style: ViewStyle
     
+    @AppStorage("accessibility", store: UserDefaults(suiteName: Constants.appGroup))
+    var enableAccessibility: Bool = true
+    
+    @AppStorage("dynamicText", store: UserDefaults(suiteName: Constants.appGroup))
+    var enableDynamicText: Bool = true
+    
     var body: some View {
         VStack(spacing: 2) {
             headerView
@@ -20,8 +26,11 @@ struct PizzaVoteView: View {
             
             PizzaProgressView(start: Constants.progressStartDate, end: Constants.talkEndDate)
                 .offset(y: style.offset)
-                .accessibilityElement(children: .ignore)
-                .accessibilityLabel("Voting ends progress. \(Text.init(Constants.talkEndDate, style: .relative)) time remaining")
+                .if(enableAccessibility, transform: { view in
+                    view
+                        .accessibilityElement(children: .ignore)
+                        .accessibilityLabel("Voting ends progress. \(Text.init(Constants.talkEndDate, style: .relative)) time remaining")
+                })
 
             bottomView
         }
@@ -40,7 +49,9 @@ struct PizzaVoteView: View {
                         .resizable()
                         .frame(maxWidth: 120, maxHeight: 50)
                         .aspectRatio(contentMode: .fit)
-                        .accessibilityLabel("Logo of leader in voting which is \(results.leader?.name ?? "") with \(results.leader?.votes ?? 0) votes")
+                        .if(enableAccessibility, transform: { view in
+                            view.accessibilityLabel("Logo of leader in voting which is \(results.leader?.name ?? "") with \(results.leader?.votes ?? 0) votes")
+                        })
                 })
                 
                 HStack {
@@ -49,7 +60,10 @@ struct PizzaVoteView: View {
                         .resizable()
                         .frame(maxWidth: 30, maxHeight: 26)
                         .aspectRatio(1, contentMode: .fill)
-                        .accessibilityLabel("Deep Dish Swift Logo")
+                        .if(enableAccessibility, transform: { view in
+                            view.accessibilityLabel("Deep Dish Swift Logo")
+                        })
+                        
                 }
             })
         } else { return AnyView(EmptyView()) }
@@ -69,17 +83,25 @@ struct PizzaVoteView: View {
             Text(text)
                 .font(.caption)
                 .foregroundColor(.secondaryText)
-                .dynamicTypeSize(...DynamicTypeSize.large)
+                .if(enableDynamicText, transform: { view in
+                    view.dynamicTypeSize(...DynamicTypeSize.large)
+                })
                 
             Text("\(votes)")
                 .font(.title)
                 .bold()
                 .foregroundColor(color)
-                .dynamicTypeSize(...DynamicTypeSize.large)
+                .if(enableDynamicText, transform: { view in
+                    view.dynamicTypeSize(...DynamicTypeSize.large)
+                })
         }
         .padding(3)
-        .accessibilityElement(children: .ignore)
-        .accessibilityLabel("\(text) has \(votes) votes")
+        .if(enableAccessibility, transform: { view in
+            view
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel("\(text) has \(votes) votes")
+        })
+        
     }
     
     var bottomView: some View {
@@ -87,21 +109,30 @@ struct PizzaVoteView: View {
             Text("Voting ends in \(Text.init(Constants.talkEndDate, style: .relative))")
                 .font(.caption)
                 .bold()
-                .dynamicTypeSize(...DynamicTypeSize.xLarge)
+                .if(enableDynamicText, transform: { view in
+                    view.dynamicTypeSize(...DynamicTypeSize.xLarge)
+                })
                 .foregroundColor(.primaryText)
                 .multilineTextAlignment(.leading)
             Spacer()
             
             VStack(alignment: .trailing, spacing: 0) {
                 HStack(spacing: 3) {
-                    Image(systemName: results.updateType)
+                    Image(systemName: results.updateType.icon)
                     Text("Updated")
                 }
                 Text(" \(Text.init(results.lastUpdated, style: .relative))")
                     .multilineTextAlignment(.trailing)
             }
             .font(.caption2)
-            .dynamicTypeSize(...DynamicTypeSize.xLarge)
+            .if(enableDynamicText, transform: { view in
+                view.dynamicTypeSize(...DynamicTypeSize.xLarge)
+            })
+            .if(enableAccessibility, transform: { view in
+                view
+                    .accessibilityElement(children: .ignore)
+                    .accessibilityLabel("Last updated from \(results.updateType.rawValue) \(Text.init(results.lastUpdated, style: .relative))")
+            })
             .foregroundColor(.secondaryText)
             .frame(maxWidth: 100)
             .if(style == .dynamicIsland, transform: { view in

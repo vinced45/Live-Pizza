@@ -16,8 +16,6 @@
 		6102D94B29F58FE700AA32B1 /* PizzaBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6102D94A29F58FE700AA32B1 /* PizzaBundle.swift */; };
 		6102D94D29F58FE700AA32B1 /* PizzaLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6102D94C29F58FE700AA32B1 /* PizzaLiveActivity.swift */; };
 		6102D95229F58FE700AA32B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6102D95129F58FE700AA32B1 /* Assets.xcassets */; };
-		6102D95429F58FE700AA32B1 /* Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 6102D95029F58FE700AA32B1 /* Widget.intentdefinition */; };
-		6102D95529F58FE700AA32B1 /* Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 6102D95029F58FE700AA32B1 /* Widget.intentdefinition */; };
 		6102D95829F58FE700AA32B1 /* WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6102D94329F58FE700AA32B1 /* WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6102D96029F5908400AA32B1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6102D95F29F5908400AA32B1 /* Constants.swift */; };
 		6102D96129F5908400AA32B1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6102D95F29F5908400AA32B1 /* Constants.swift */; };
@@ -62,6 +60,7 @@
 		6102D9A529F756C800AA32B1 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6102D9A329F756C800AA32B1 /* Line.swift */; };
 		6102D9A729F8C4C900AA32B1 /* PizzaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6102D9A629F8C4C900AA32B1 /* PizzaType.swift */; };
 		6102D9A829F8C4C900AA32B1 /* PizzaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6102D9A629F8C4C900AA32B1 /* PizzaType.swift */; };
+		61484AE929FDF25A00D1E77F /* AboutMeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61484AE829FDF25A00D1E77F /* AboutMeView.swift */; };
 		61E3E1CE29F968D40024FEFC /* PizzaDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3E1CD29F968D40024FEFC /* PizzaDetailView.swift */; };
 		61E3E1D029F982B30024FEFC /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3E1CF29F982B30024FEFC /* URL+Extensions.swift */; };
 		61E3E1D129F982B30024FEFC /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E3E1CF29F982B30024FEFC /* URL+Extensions.swift */; };
@@ -105,7 +104,6 @@
 		6102D94729F58FE700AA32B1 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		6102D94A29F58FE700AA32B1 /* PizzaBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaBundle.swift; sourceTree = "<group>"; };
 		6102D94C29F58FE700AA32B1 /* PizzaLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaLiveActivity.swift; sourceTree = "<group>"; };
-		6102D95029F58FE700AA32B1 /* Widget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Widget.intentdefinition; sourceTree = "<group>"; };
 		6102D95129F58FE700AA32B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6102D95329F58FE700AA32B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6102D95D29F5903E00AA32B1 /* WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtension.entitlements; sourceTree = "<group>"; };
@@ -133,6 +131,7 @@
 		6102D99F29F7560B00AA32B1 /* AdaptiveForegroundColorModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveForegroundColorModifier.swift; sourceTree = "<group>"; };
 		6102D9A329F756C800AA32B1 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		6102D9A629F8C4C900AA32B1 /* PizzaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaType.swift; sourceTree = "<group>"; };
+		61484AE829FDF25A00D1E77F /* AboutMeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeView.swift; sourceTree = "<group>"; };
 		61E3E1CD29F968D40024FEFC /* PizzaDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaDetailView.swift; sourceTree = "<group>"; };
 		61E3E1CF29F982B30024FEFC /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		61E3E1D229F9C7E60024FEFC /* UpdateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateType.swift; sourceTree = "<group>"; };
@@ -183,6 +182,7 @@
 			children = (
 				6102D93029F58FC100AA32B1 /* Live_PizzaApp.swift */,
 				6102D93229F58FC100AA32B1 /* ContentView.swift */,
+				61484AE829FDF25A00D1E77F /* AboutMeView.swift */,
 				6102D96829F591EB00AA32B1 /* Helpers */,
 				6102D95E29F5906800AA32B1 /* Shared */,
 				6102D93429F58FC300AA32B1 /* Assets.xcassets */,
@@ -215,7 +215,6 @@
 			children = (
 				6102D94A29F58FE700AA32B1 /* PizzaBundle.swift */,
 				6102D94C29F58FE700AA32B1 /* PizzaLiveActivity.swift */,
-				6102D95029F58FE700AA32B1 /* Widget.intentdefinition */,
 				6102D95129F58FE700AA32B1 /* Assets.xcassets */,
 				6102D95329F58FE700AA32B1 /* Info.plist */,
 			);
@@ -418,11 +417,11 @@
 				6102D99D29F755EE00AA32B1 /* View+Extensions.swift in Sources */,
 				6102D97729F59BB500AA32B1 /* Pizzable+Extensions.swift in Sources */,
 				6102D99A29F755AA00AA32B1 /* Color+Extensions.swift in Sources */,
-				6102D95529F58FE700AA32B1 /* Widget.intentdefinition in Sources */,
 				6102D99429F713B300AA32B1 /* UserDefaultsHelper.swift in Sources */,
 				6102D97429F5977900AA32B1 /* PizzaResultsAttributes.swift in Sources */,
 				6102D98B29F5F6CA00AA32B1 /* CloudKitHelper.swift in Sources */,
 				61E3E1D329F9C7E60024FEFC /* UpdateType.swift in Sources */,
+				61484AE929FDF25A00D1E77F /* AboutMeView.swift in Sources */,
 				6102D99729F754CE00AA32B1 /* PizzaProgressView.swift in Sources */,
 				6102D9A729F8C4C900AA32B1 /* PizzaType.swift in Sources */,
 				6102D98129F5AF4A00AA32B1 /* ActivityViewContext+Extensions.swift in Sources */,
@@ -441,7 +440,6 @@
 			files = (
 				6102D96129F5908400AA32B1 /* Constants.swift in Sources */,
 				6102D9A129F7560B00AA32B1 /* AdaptiveForegroundColorModifier.swift in Sources */,
-				6102D95429F58FE700AA32B1 /* Widget.intentdefinition in Sources */,
 				6102D97229F595A500AA32B1 /* Pizza.swift in Sources */,
 				61E3E1D429F9C7E60024FEFC /* UpdateType.swift in Sources */,
 				6102D97B29F5A30300AA32B1 /* Pizzable+Preview.swift in Sources */,

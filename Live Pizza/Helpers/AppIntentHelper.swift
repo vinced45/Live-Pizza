@@ -27,7 +27,10 @@ struct UAIntentShortcuts: AppShortcutsProvider {
 struct PizzaIntent: AppIntent, LiveActivityStartingIntent {
     static let title: LocalizedStringResource = "Pizza"
 
-    func perform() async throws -> some IntentResult & ProvidesDialog & ShowsSnippetView & ReturnsValue<PizzaResultsEntity>  {
+    typealias PizzaResult = IntentResult & ProvidesDialog &
+                            ShowsSnippetView & ReturnsValue<PizzaResultsEntity>
+    
+    func perform() async throws -> some PizzaResult {
         if let context = await UserDefaultsHelper.getPizzaResults() {
             let pizza = PizzaResultsEntity(context: context)
             await LiveActivityManager.shared.startLiveActivity(for: context)

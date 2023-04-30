@@ -19,7 +19,7 @@ protocol StaticResultsPizzable {
 protocol DynamicResultsPizzable {
     var results: [Pizza] { get }
     var lastUpdated: Date { get }
-    var updateType: String { get }
+    var updateType: UpdateType { get }
 }
 
 typealias Pizzable = StaticResultsPizzable & DynamicResultsPizzable

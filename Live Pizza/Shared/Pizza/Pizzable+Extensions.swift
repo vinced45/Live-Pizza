@@ -19,7 +19,7 @@ extension DynamicResultsPizzable {
         return PizzaResultsAttributes.ContentState(
             results: results,
             lastUpdated: lastUpdated,
-            updateType: type.icon)
+            updateType: type)
     }
     
     var totalVotes: Int {
