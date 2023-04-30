@@ -162,7 +162,7 @@ extension ContentView {
         }, header: {
             Text("Accessibility")
         }, footer: {
-            Text("Enable Voice Over to see the difference when this is enabled or not.")
+            Text("Enable Voice Over to see the difference when this is enabled or not. You will have to start and stop your live activity.")
         })
     }
     
@@ -172,7 +172,7 @@ extension ContentView {
         }, header: {
             Text("Dynamic Text")
         }, footer: {
-            Text("Go to Control Center and change text size to see the effects of this being enabled")
+            Text("Go to Control Center and change text size to see the effects of this being enabled. You will have to start and stop your live activity.")
         })
     }
 }
