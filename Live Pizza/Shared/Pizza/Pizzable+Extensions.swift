@@ -29,12 +29,7 @@ extension DynamicResultsPizzable {
     }
     
     var leader: Pizza? {
-        if let pizza = results.max(by: { $0.votes < $1.votes }),
-           pizza.votes > 0,
-           tie.isEmpty {
-            return pizza
-        }
-        return nil
+        return results.max(by: { $0.votes < $1.votes })
     }
     
     var tie: [Pizza] {
