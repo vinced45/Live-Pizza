@@ -63,7 +63,6 @@ struct PizzaVoteView: View {
                         .if(enableAccessibility, transform: { view in
                             view.accessibilityLabel("Deep Dish Swift Logo")
                         })
-                        
                 }
             })
         } else { return AnyView(EmptyView()) }
@@ -106,7 +105,7 @@ struct PizzaVoteView: View {
     
     var bottomView: some View {
         HStack {
-            Text("Voting ends in \(Text.init(Constants.talkEndDate, style: .relative))")
+            votingEndsText
                 .font(.caption)
                 .bold()
                 .if(enableDynamicText, transform: { view in
@@ -114,6 +113,7 @@ struct PizzaVoteView: View {
                 })
                 .foregroundColor(.primaryText)
                 .multilineTextAlignment(.leading)
+                    
             Spacer()
             
             VStack(alignment: .trailing, spacing: 0) {
@@ -140,6 +140,14 @@ struct PizzaVoteView: View {
             })
         }
         .offset(y: style.offset)
+    }
+    
+    var votingEndsText: some View {
+        if Constants.talkEndDate > Date.now {
+            return Text("Voting ends in \(Text.init(Constants.talkEndDate, style: .relative))")
+        } else {
+            return Text("Voting has ended")
+        }
     }
 }
 

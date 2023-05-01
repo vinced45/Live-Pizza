@@ -22,6 +22,6 @@ struct Constants {
     static var progressStartDate: Date {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd HH:mm"
-        return formatter.date(from: "2023/04/22 13:35")!
+        return formatter.date(from: "2023/04/30 10:00")!
     }
 }
