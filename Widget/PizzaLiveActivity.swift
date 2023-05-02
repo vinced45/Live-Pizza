@@ -100,7 +100,7 @@ extension PizzaLiveActivity {
         } else if diff > 10 * 60 * 60 {
             return 90
         } else if diff > 1 * 60 * 60 {
-            return 55
+            return 65
         }
         
         return 45
